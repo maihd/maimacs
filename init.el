@@ -18,6 +18,8 @@
 	(load (expand-file-name (car modules-list)
 				maimacs-directory))
 	(load-modules (cdr modules-list))))
-    (load-modules '("autosave.el" "style.el"))))
+    (load-modules '("autosave.el" "style.el" "web-mode.el"))
+    ;; initializations
+    (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))))
 
 
