@@ -18,8 +18,14 @@
 	(load (expand-file-name (car modules-list)
 				maimacs-directory))
 	(load-modules (cdr modules-list))))
-    (load-modules '("autosave.el" "style.el" "web-mode.el"))
+    (load-modules '("autosave.el" "style.el" "web-mode.el" "lua-mode.el"))
+    ;; loading slime
+    (add-to-list 'load-path (expand-file-name "slime" maimacs-directory))
+    (require 'slime-autoloads)
+    (setq inferior-lisp-program "sbcl")
     ;; initializations
-    (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))))
+    (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-mode))
+    (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))))
 
 
