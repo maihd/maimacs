@@ -18,7 +18,9 @@
 	(load (expand-file-name (car modules-list)
 				maimacs-directory))
 	(load-modules (cdr modules-list))))
-    (load-modules '("autosave.el" "style.el" "web-mode.el" "lua-mode.el"))
+    (load-modules '("autosave.el" "style.el"
+		    "web-mode.el" "lua-mode.el"
+		    "theme.el"))
     ;; loading slime
     (add-to-list 'load-path (expand-file-name "slime" maimacs-directory))
     (require 'slime-autoloads)
