@@ -1,10 +1,10 @@
 
 ;;; maimacs-theme.el --- Emacs theme with a dark background.
 
-;; Copyright (C) 2017 , MaiHD
+;; Copyright (C) 2014 , MaiHD
 
 ;; Author: MaiHD
-;; https://github.com/maihd/maimacs
+;; http://github.com/maihd/maimacs.git
 ;; Version: 0.1
 ;; Package-Requires: ((emacs "24"))
 ;; Created with emacs-theme-generator, https://github.com/mswift42/theme-creator.
@@ -29,29 +29,29 @@
 
 ;;; Code:
 
- (deftheme maimacs-theme)
+ (deftheme maimacs)
  (let ((class '((class color) (min-colors 89)))
-       (fg1 "#c9c9c9")
-       (fg2 "#b7b7b7")
-       (fg3 "#a6a6a6")
-       (fg4 "#959595")
-       (bg1 "#404d52")
-       (bg2 "#4e5a5e")
-       (bg3 "#5c676b")
-       (bg4 "#6a7478")
-       (key2 "#f59594")
-       (key3 "#d47878")
-       (builtin "#6196ba")
-       (keyword "#f28888")
-       (const   "#25e6e6")
+       (fg1 "#88a2b8")
+       (fg2 "#7c94a8")
+       (fg3 "#718698")
+       (fg4 "#667988")
+       (bg1 "#3e5569")
+       (bg2 "#4d6174")
+       (bg3 "#5b6e7f")
+       (bg4 "#6a7b8b")
+       (key2 "#01a674")
+       (key3 "#e08958")
+       (builtin "#69b5ff")
+       (keyword "#ff9b63")
+       (const   "#8be8e4")
        (comment "#4fa19c")
-       (func    "#d1b4d6")
+       (func    "#f0d797")
        (str     "#96e3c8")
-       (type    "#facd78")
+       (type    "#f7c86f")
        (var     "#65b5ba")
-       (warning "#e81050"))
+       (warning "#f0517b"))
    (custom-theme-set-faces
-   'maimacs-theme
+   'maimacs
         `(default ((,class (:background ,bg1 :foreground ,fg1))))
         `(font-lock-builtin-face ((,class (:foreground ,builtin))))
         `(font-lock-comment-face ((,class (:foreground ,comment))))
@@ -247,7 +247,7 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'maimacs-theme)
+(provide-theme 'maimacs)
 
 ;; Local Variables:
 ;; no-byte-compile: t
