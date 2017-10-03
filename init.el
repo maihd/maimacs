@@ -20,6 +20,7 @@
 	(load-modules (cdr modules-list))))
     (load-modules '("autosave.el" "style.el"
 		    "web-mode.el" "lua-mode.el"
+		    "glsl-mode.el"
 		    "cc-mode-enum-fix.el"
 		    "theme.el"))
     ;; loading slime
@@ -27,6 +28,10 @@
     (require 'slime-autoloads)
     (setq inferior-lisp-program "sbcl")
     ;; initializations
+    (add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
+    (add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
+    (add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
+    (add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode))
     (add-to-list 'auto-mode-alist '("\\.inl\\'" . c-mode))
     (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-mode))
