@@ -6,6 +6,8 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+(
+
 ;; setting fonts
 (cond
  ((find-font (font-spec :name "Hack"))
