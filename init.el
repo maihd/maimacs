@@ -20,9 +20,8 @@
 	(load-modules (cdr modules-list))))
     (load-modules '("autosave.el" "style.el"
 		    "web-mode.el" "lua-mode.el"
-		    "glsl-mode.el"
-		    "cc-mode-enum-fix.el"
-		    "theme.el"))
+		    "glsl-mode.el" "nasm-mode.el"
+		    "maiblue-theme.el"))
     ;; loading slime
     (add-to-list 'load-path (expand-file-name "slime" maimacs-directory))
     (require 'slime-autoloads)
@@ -35,6 +34,8 @@
     (add-to-list 'auto-mode-alist '("\\.inl\\'" . c-mode))
     (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
     (add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-mode))
+    (add-to-list 'auto-mode-alist '("\\.asm\\'" . nasm-mode))
+    (add-to-list 'auto-mode-alist '("\\.s\\'" . nasm-mode))
     (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))))
 
 
