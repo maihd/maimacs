@@ -5,7 +5,9 @@
 (menu-bar-mode    -1)
 (tool-bar-mode    -1)
 (scroll-bar-mode  -1)
-(global-linum-mode 1)
+(global-nlinum-mode 1)
+
+(set-fringe-mode '(0 . 0))
 
 ;; setting fonts
 (cond

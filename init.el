@@ -10,7 +10,6 @@
 
 (defconst maimacs/source-files
   '("autosave.el"
-    "style.el"
     "nlinum.el"
     "c-mode.el"
     "maiterm.el"
@@ -22,6 +21,7 @@
     ;;"maiblue-theme.el"
     "maibluetwo-theme.el"
     "statusline.el"
+    "style.el"
     )
   "Maimacs' source files")
   
@@ -46,14 +46,18 @@
     (load-modules maimacs/source-files)
     
     ;; Preset `nlinum-format' for minimum width.
+    (defun set-window-width (n)
+      "Set the selected window's width."
+      (adjust-window-trailing-edge (selected-window)
+				   (- n (window-width)) t))
     (defun maimacs-nlinum-mode-hook ()
       (when nlinum-mode
+	(defvar-local line-digits
+	  (ceiling (log (max 1 (/ (buffer-size) 80)) 10)))
 	(setq-local nlinum-format
-		    (concat "%"
-			    (number-to-string
-			     ;; Guesstimate number of buffer lines.
-			     (ceiling (log (max 1 (/ (buffer-size) 80)) 10)))
-			    "d"))))
+		    (concat " %"
+			    (number-to-string line-digits)
+			    "d  "))))
     (add-hook 'nlinum-mode-hook #'maimacs-nlinum-mode-hook)
     (set-face-foreground 'linum
 			 ;;"#6f95ab") ;; maiblue-theme foreground color
@@ -61,11 +65,13 @@
     (defun initialize-nlinum (&optional frame)
       (require 'nlinum)
       (add-hook 'prog-mode-hook 'nlinum-mode))
-    (when (daemonp)
+    (cond
+     ((daemonp)
       (add-hook 'window-setup-hook 'initialize-nlinum)
       (defadvice make-frame (around toggle-nlinum-mode compile activate)
 	(nlinum-mode -1) ad-do-it (nlinum-mode 1)))
-
+     (t nil))
+    
     ;; Initialize files' auto mode detection
     (add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
     (add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))

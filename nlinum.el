@@ -308,6 +308,7 @@ Used by the default `nlinum-format-function'."
                            'linum)
                          str)
       str))
+  
   "Function to build the string representing the line number.
 Takes 2 arguments LINE and WIDTH, both of them numbers, and should return
 a string.  WIDTH is the ideal width of the result.  If the result is larger,
