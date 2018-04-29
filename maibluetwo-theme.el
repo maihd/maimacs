@@ -1,9 +1,9 @@
 
 
 
-;;; maiblue-theme.el --- Emacs theme with a dark background.
+;;; maibluetwo-theme.el --- Emacs theme with a dark background.
 
-;; Copyright (C) 2017 , MaiHD
+;; Copyright (C) 2018 , MaiHD
 
 ;; Author: MaiHD
 ;; https://github.com/maihd/maimacs.git
@@ -31,29 +31,29 @@
 
 ;;; Code:
 
- (deftheme maiblue)
+ (deftheme maibluetwo)
  (let ((class '((class color) (min-colors 89)))
-       (fg1 "#6f95ab")
-       (fg2 "#66889c")
-       (fg3 "#5d7c8d")
-       (fg4 "#546f7f")
-       (bg1 "#3c4452")
-       (bg2 "#4a515e")
-       (bg3 "#585f6b")
-       (bg4 "#676d78")
-       (key2 "#029775")
-       (key3 "#e07a5a")
-       (builtin "#64b5f6")
-       (keyword "#ff8a65")
-       (const   "#ce93d8")
-       (comment "#26a69a")
-       (func    "#64b5f6")
-       (str     "#dce775")
-       (type    "#ffe082")
-       (var     "#bbdefb")
-       (warning "#ec407a"))
+       (fg1 "#7695b0")
+       (fg2 "#6c88a1")
+       (fg3 "#637c91")
+       (fg4 "#596f83")
+       (bg1 "#2e2e3b")
+       (bg2 "#3c3c49")
+       (bg3 "#4b4b57")
+       (bg4 "#5b5a65")
+       (key2 "#e54578")
+       (key3 "#c31e5d")
+       (builtin "#1f7fa6")
+       (keyword "#de1b69")
+       (const   "#de76bc")
+       (comment "#488c73")
+       (func    "#1f7fa6")
+       (str     "#c48d06")
+       (type    "#c7d665")
+       (var     "#a7c4b3")
+       (warning "#f64343"))
    (custom-theme-set-faces
-   'maiblue
+   'maibluetwo
         `(default ((,class (:background ,bg1 :foreground ,fg1))))
         `(font-lock-builtin-face ((,class (:foreground ,builtin))))
         `(font-lock-comment-face ((,class (:foreground ,comment))))
@@ -249,11 +249,11 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'maiblue)
+(provide-theme 'maibluetwo)
 
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:
 
-;;; maiblue-theme.el ends here
+;;; maibluetwo-theme.el ends here
 

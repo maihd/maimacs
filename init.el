@@ -2,7 +2,7 @@
 ;;; MaiMacs 2017 - 2018, by MaiHD
 ;;;
 
-(defconst maimacs/version "0.0.1"
+(defconst maimacs/version "0.1.0"
   "MaiMacs version.")
 
 (defconst maimacs/emacs-min-version "24.0.0"
@@ -13,12 +13,15 @@
     "style.el"
     "nlinum.el"
     "c-mode.el"
-    "csharp-mode.el" 
+    "maiterm.el"
     "web-mode.el"
     "lua-mode.el"
     "glsl-mode.el"
     "nasm-mode.el"
-    "maiblue-theme.el")
+    "csharp-mode.el" 
+    ;;"maiblue-theme.el"
+    "maibluetwo-theme.el"
+    )
   "Maimacs' source files")
   
 (if (version< emacs-version maimacs/emacs-min-version)
@@ -51,7 +54,9 @@
 			     (ceiling (log (max 1 (/ (buffer-size) 80)) 10)))
 			    "d"))))
     (add-hook 'nlinum-mode-hook #'maimacs-nlinum-mode-hook)
-    (set-face-foreground 'linum "#6f95ab")
+    (set-face-foreground 'linum
+			 ;;"#6f95ab") ;; maiblue-theme foreground color
+			 "#7695b0")   ;; maibluetwo-theme foreground color
     (defun initialize-nlinum (&optional frame)
       (require 'nlinum)
       (add-hook 'prog-mode-hook 'nlinum-mode))
