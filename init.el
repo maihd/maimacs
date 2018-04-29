@@ -21,6 +21,7 @@
     "csharp-mode.el" 
     ;;"maiblue-theme.el"
     "maibluetwo-theme.el"
+    "statusline.el"
     )
   "Maimacs' source files")
   
