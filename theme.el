@@ -1,7 +1,7 @@
 
 ;;; maimacs-theme.el --- Emacs theme with a dark background.
 
-;; Copyright (C) 2014 , MaiHD
+;; Copyright (C) 2017 - 2018 , MaiHD
 
 ;; Author: MaiHD
 ;; http://github.com/maihd/maimacs.git
