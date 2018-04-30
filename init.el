@@ -52,13 +52,14 @@
 				   (- n (window-width)) t))
     (defun maimacs-nlinum-mode-hook ()
       (when nlinum-mode
-	(defvar-local line-digits
-	  (ceiling (log (max 1 (/ (buffer-size) 80)) 10)))
-	(setq-local nlinum-format
-		    (concat " %"
-			    (number-to-string line-digits)
-			    "d  "))))
+	(let ((line-digits
+	       (ceiling (log (max 1 (/ (buffer-size) 80)) 10))))
+	  (setq-local nlinum-format
+		      (concat " %"
+			      (number-to-string line-digits)
+			      "d  ")))))
     (add-hook 'nlinum-mode-hook #'maimacs-nlinum-mode-hook)
+    (set-frame-width (selected-frame) 86)
     (set-face-foreground 'linum
 			 ;;"#6f95ab") ;; maiblue-theme foreground color
 			 "#7695b0")   ;; maibluetwo-theme foreground color
