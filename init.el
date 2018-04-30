@@ -59,7 +59,6 @@
 			      (number-to-string line-digits)
 			      "d  ")))))
     (add-hook 'nlinum-mode-hook #'maimacs-nlinum-mode-hook)
-    (set-frame-width (selected-frame) 86)
     (set-face-foreground 'linum
 			 ;;"#6f95ab") ;; maiblue-theme foreground color
 			 "#7695b0")   ;; maibluetwo-theme foreground color
