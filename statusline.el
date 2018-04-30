@@ -2,15 +2,16 @@
 (defvar statusline-color2)
 (defvar statusline-text-color)
 
-(setq statusline-color1 "#44464c")
-(setq statusline-color2 "#636875")
-(setq statusline-text-color "#a0b8f7")
+(setq statusline-color1     "#353535")
+(setq statusline-color2     "#636363")
+(setq statusline-text-color "#fff1e0")
 
 (set-face-attribute 'mode-line nil
-                    :background "#2b2d33"
+                    :background "#ffc000"
+		    :foreground "#683608"
                     :box nil)
 (set-face-attribute 'mode-line-inactive nil
-                    :background "#33353b"
+                    :background statusline-color1
                     :box nil)
 
 (scroll-bar-mode -1)

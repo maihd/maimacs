@@ -23,4 +23,8 @@
   (set-frame-font "Anonymous Pro")))
 
 (set-face-attribute 'default nil :height 120)
+
+(set-face-attribute 'minibuffer-prompt nil
+		    :bold t
+		    :foreground "#de1b69")
 ;(set-face-attribute 'fringe nil :background "#2E2920" :foreground "#2E2920")
