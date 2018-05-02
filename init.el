@@ -9,19 +9,18 @@
   "Emacs min version that is supported by MaiMacs.")
 
 (defconst maimacs/source-files
-  '("autosave.el"
-    "nlinum.el"
-    "c-mode.el"
-    "maiterm.el"
+  '("c-mode.el"
     "web-mode.el"
     "lua-mode.el"
     "glsl-mode.el"
     "nasm-mode.el"
-    "csharp-mode.el" 
-    ;;"maiblue-theme.el"
+    
     "maibluetwo-theme.el"
-    "statusline.el"
-    "style.el"
+
+    "nlinum.el"
+    "maiterm.el"
+    "autosave.el"
+    "frame-style.el"
     )
   "Maimacs' source files")
   
@@ -45,39 +44,13 @@
 	(load-modules (cdr modules-list))))
     (load-modules maimacs/source-files)
     
-    ;; Preset `nlinum-format' for minimum width.
-    (defun set-window-width (n)
-      "Set the selected window's width."
-      (adjust-window-trailing-edge (selected-window)
-				   (- n (window-width)) t))
-    (defun maimacs-nlinum-mode-hook ()
-      (when nlinum-mode
-	(let ((line-digits
-	       (ceiling (log (max 1 (/ (buffer-size) 80)) 10))))
-	  (setq-local nlinum-format
-		      (concat " %"
-			      (number-to-string line-digits)
-			      "d  ")))))
-    (add-hook 'nlinum-mode-hook #'maimacs-nlinum-mode-hook)
-    (set-face-foreground 'linum
-			 ;;"#6f95ab") ;; maiblue-theme foreground color
-			 "#7695b0")   ;; maibluetwo-theme foreground color
-    (defun initialize-nlinum (&optional frame)
-      (require 'nlinum)
-      (add-hook 'prog-mode-hook 'nlinum-mode))
-    (cond
-     ((daemonp)
-      (add-hook 'window-setup-hook 'initialize-nlinum)
-      (defadvice make-frame (around toggle-nlinum-mode compile activate)
-	(nlinum-mode -1) ad-do-it (nlinum-mode 1)))
-     (t nil))
-    
     ;; Initialize files' auto mode detection
     (add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
     (add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
     (add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
     (add-to-list 'auto-mode-alist '("\\.geom\\'" . glsl-mode))
-    (add-to-list 'auto-mode-alist '("\\.inl\\'"  .    c-mode))
+    (add-to-list 'auto-mode-alist '("\\.h\\'"    .  c++-mode))
+    (add-to-list 'auto-mode-alist '("\\.inl\\'"  .  c++-mode))
     (add-to-list 'auto-mode-alist '("\\.php\\'"  .  web-mode))
     (add-to-list 'auto-mode-alist '("\\.lua\\'"  .  lua-mode))
     (add-to-list 'auto-mode-alist '("\\.asm\\'"  . nasm-mode))

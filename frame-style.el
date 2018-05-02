@@ -1,3 +1,47 @@
+;;;
+;;; MaiMacs 2017 - 2018, by MaiHD
+;;;
+
+;; frame settings
+(menu-bar-mode     -1)
+(tool-bar-mode     -1)
+(scroll-bar-mode   -1)
+(set-fringe-mode    0)
+(global-nlinum-mode 1)
+
+(set-frame-width (selected-frame) 88) ;; 80 content, 8 linum
+(setq frame-title-format
+      '((:eval (let ((name (buffer-file-name)))
+		 (or name "%b")))
+	" - MaiMacs"))
+
+;; Preset `nlinum-format' for minimum width.
+(setq nlinum-format "%3d  ")
+(defun initialize-nlinum (&optional frame)
+  (require 'nlinum)
+  (add-hook 'prog-mode-hook 'nlinum-mode))
+(cond
+ ((daemonp)
+  (add-hook 'window-setup-hook 'initialize-nlinum)
+  (defadvice make-frame (around toggle-nlinum-mode compile activate)
+    (nlinum-mode -1) ad-do-it (nlinum-mode 1)))
+ (t nil))
+
+;; fonts settings
+(cond
+ ((find-font (font-spec :name "Adale Mono"))
+  (set-frame-font "Adale Mono"))
+ ((find-font (font-spec :name "Hack"))
+  (set-frame-font "Hack"))
+ ((find-font (font-spec :name "Consolas"))
+  (set-frame-font "Consolas"))
+ ((find-font (font-spec :name "Inconsolata"))
+  (set-frame-font "Inconsolata"))
+ ((find-font (font-spec :name "Anonymous Pro"))
+  (set-frame-font "Anonymous Pro")))
+(set-face-attribute 'default nil :height 110) ;; 11pt
+
+;; mode-line custom: statusline
 (defvar statusline-color1)
 (defvar statusline-color2)
 (defvar statusline-text-color)
@@ -183,8 +227,8 @@ install the memoized function over the original function."
 
 (defvar statusline-minor-modes nil)
 (defvar statusline-arrow-shape 'arrow)
-(defun statusline-make-face
-  (bg &optional fg)
+
+(defun statusline-make-face (bg &optional fg)
   (if bg
       (let ((cface (intern (concat "statusline-"
                                    bg
@@ -209,8 +253,7 @@ install the memoized function over the original function."
         cface)
     nil))
 
-(defun statusline-make-left
-  (string color1 &optional color2 localmap)
+(defun statusline-make-left (string color1 &optional color2 localmap)
   (let ((plface (statusline-make-face color1))
         (arrow  (and color2 (not (string= color1 color2)))))
     (concat
@@ -233,8 +276,7 @@ install the memoized function over the original function."
 		     (arrow-left-xpm color1 color2)))
        "")))
 
-(defun statusline-make-right
-  (string color2 &optional color1 localmap)
+(defun statusline-make-right (string color2 &optional color1 localmap)
   (let ((plface (statusline-make-face color2))
         (arrow  (and color1 (not (string= color1 color2)))))
     (concat
@@ -256,8 +298,7 @@ install the memoized function over the original function."
          ""
        (propertize " " 'face plface)))))
 
-(defun statusline-make-fill
-  (color)
+(defun statusline-make-fill (color)
   ;; justify right by filling with spaces to right fringe,
   ;; 20 should be calculated
   (let ((plface (statusline-make-face color)))
@@ -267,8 +308,7 @@ install the memoized function over the original function."
       (propertize " " 'display '((space :align-to (- right-fringe 24)))
                   'face plface))))
 
-(defun statusline-make-text
-  (string color &optional fg localmap)
+(defun statusline-make-text (string color &optional fg localmap)
   (let ((plface (statusline-make-face color)))
     (if string
         (if localmap
@@ -428,7 +468,7 @@ install the memoized function over the original function."
 (defstatusline vc
   (when (and (buffer-file-name (current-buffer))
 	     vc-mode)
-    (symbol-name (vc-mode-line (buffer-file-name (current-buffer) )))))
+    (symbol-name (vc-mode-line (buffer-file-name (current-buffer))))))
 
 (defstatusline percent-xpm
   (propertize "  "
@@ -487,8 +527,4 @@ install the memoized function over the original function."
                              (statusline-make-text      "  "    nil)))))
 
 
-
-
-(provide 'statusline)
-
-;;; statusline.el ends here
+;; @endfile: frame-style.el

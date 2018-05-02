@@ -52,6 +52,7 @@
   (custom-theme-set-faces
    'maibluetwo
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
+   `(linum   ((,class (:foreground ,fg1))))
    `(font-lock-builtin-face ((,class (:foreground ,builtin))))
    `(font-lock-comment-face ((,class (:foreground ,comment))))
    `(font-lock-negation-char-face ((,class (:foreground ,const))))
