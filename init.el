@@ -14,6 +14,7 @@
     "lua-mode.el"
     "glsl-mode.el"
     "nasm-mode.el"
+    "unity-shader-mode.el"
     
     "maibluetwo-theme.el"
 
