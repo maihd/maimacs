@@ -16,8 +16,9 @@
     "nasm-mode.el"
     "unity-shader-mode.el"
     
-    "maibluetwo-theme.el"
-
+    ;"maibluetwo-theme.el"
+    "themes/maiblue-three-theme.el"
+    
     "nlinum.el"
     "maiterm.el"
     "autosave.el"
