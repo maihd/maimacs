@@ -2,11 +2,15 @@
 ;;; MaiMacs 2017 - 2018, by MaiHD
 ;;;
 
+(require 'cc-mode)
+
 (setq c-default-style "linux")
 (setq c++-default-style "linux")
 (setq c-sharp-default-style "linux")
 
-(setq tab-width 4)
-(setq c-basic-offset 4)
-(setq c-brace-imaginary-offset 0)
-;;(setq c-continued-statement-offset 4)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+
+(setq-default c-basic-offset 4)
+(setq-default c-brace-imaginary-offset 4)
+(setq-default c-continued-statement-offset 4)
