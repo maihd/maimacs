@@ -51,8 +51,8 @@
 (setq statusline-text-color "#fff1e0")
 
 (set-face-attribute 'mode-line nil
-                    :background "#ffc000"
-		    :foreground "#683608"
+                    :background "#61AFEF"
+		            :foreground statusline-color1
                     :box nil)
 (set-face-attribute 'mode-line-inactive nil
                     :background statusline-color1

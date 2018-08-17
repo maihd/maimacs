@@ -33,7 +33,11 @@
 	   maimacs/emacs-min-version)
   (defun maimacs-init (maimacs-directory)
     "Initialize maimacs"
-
+    
+    ;; Hide welcome screen
+    (setq inhibit-splash-screen t)
+    (setq inhibit-startup-message t)
+    
     ;; Load path 
     (add-to-list 'load-path maimacs-directory)
     
@@ -59,6 +63,11 @@
     (add-to-list 'auto-mode-alist '("\\.s\\'"    . nasm-mode))
 
     ;; Initialize interpreters
-    (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))))
+    (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+
+    ;; Change main mode to c-mode
+    (setq initial-major-mode 'c-mode)
+    (setq initial-scratch-message "")
+    ))
 
 ;; @endfile: init.el
