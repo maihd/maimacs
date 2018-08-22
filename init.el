@@ -34,6 +34,9 @@
 	   maimacs/emacs-min-version)
   (defun maimacs-init (maimacs-directory)
     "Initialize maimacs"
+
+    ;; Encoding
+    (set-language-environment "UTF-8")
     
     ;; Hide welcome screen
     (setq inhibit-splash-screen t)
