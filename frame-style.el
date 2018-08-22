@@ -9,7 +9,9 @@
 (set-fringe-mode    0)
 (global-nlinum-mode 1)
 
-(set-frame-width (selected-frame) 88) ;; 80 content, 8 linum
+;(set-frame-width (selected-frame) 88) ;; 80 content, 8 linum
+(set-frame-width (selected-frame) 172)
+(set-frame-height (selected-frame) 42)
 (setq frame-title-format
       '((:eval (let ((name (buffer-file-name)))
 		 (or name "%b")))
@@ -29,6 +31,8 @@
 
 ;; fonts settings
 (cond
+ ((find-font (font-spec :name "Source Code Pro"))
+  (set-frame-font "Source Code Pro"))
  ((find-font (font-spec :name "Adale Mono"))
   (set-frame-font "Adale Mono"))
  ((find-font (font-spec :name "Hack"))
@@ -46,13 +50,13 @@
 (defvar statusline-color2)
 (defvar statusline-text-color)
 
-(setq statusline-color1     "#353535")
-(setq statusline-color2     "#636363")
-(setq statusline-text-color "#fff1e0")
+(setq statusline-color1     "#353542")
+(setq statusline-color2     "#535360")
+(setq statusline-text-color "#E0F1FF")
 
 (set-face-attribute 'mode-line nil
-                    :background "#61AFEF"
-		            :foreground statusline-color1
+                    :background "#0063B1"
+		            :foreground "#E0F1FF"
                     :box nil)
 (set-face-attribute 'mode-line-inactive nil
                     :background statusline-color1

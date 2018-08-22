@@ -83,7 +83,7 @@
    `(vertical-border ((t (:background ,maiblue-three-border :foreground ,maiblue-three-border))))
    `(secondary-selection ((t (:background ,maiblue-three-bg-1))))
    `(query-replace ((t (:inherit (isearch)))))
-   `(minibuffer-prompt ((t (:foreground ,maiblue-three-silver))))
+   `(minibuffer-prompt ((t (:foreground ,maiblue-three-blue))))
 
    `(font-lock-builtin-face ((t (:foreground ,maiblue-three-blue))))
    `(font-lock-comment-face ((t (:foreground ,maiblue-three-mono-3))))

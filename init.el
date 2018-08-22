@@ -23,6 +23,7 @@
     "maiterm.el"
     "autosave.el"
     "frame-style.el"
+    "key-bindings.el"
     )
   "Maimacs' source files")
   
