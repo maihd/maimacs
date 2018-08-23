@@ -9,7 +9,8 @@
 (set-fringe-mode    0)
 (global-nlinum-mode 1)
 
-;(set-frame-width (selected-frame) 88) ;; 80 content, 8 linum
+;;(set-frame-width (selected-frame) 88) ;; 80 content, 8 linum
+(set-frame-parameter (selected-frame) 'alpha '(99 . 96))
 (set-frame-width (selected-frame) 172)
 (set-frame-height (selected-frame) 42)
 (setq frame-title-format

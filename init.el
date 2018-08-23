@@ -23,8 +23,7 @@
     "maiterm.el"
     "autosave.el"
     "frame-style.el"
-    "key-bindings.el"
-    )
+    "key-bindings.el")
   "Maimacs' source files")
   
 (if (version< emacs-version maimacs/emacs-min-version)
