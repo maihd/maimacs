@@ -86,7 +86,7 @@
    `(minibuffer-prompt ((t (:foreground ,maiblue-three-blue))))
 
    `(font-lock-builtin-face ((t (:foreground ,maiblue-three-blue))))
-   `(font-lock-comment-face ((t (:foreground ,maiblue-three-mono-3))))
+   `(font-lock-comment-face ((t (:foreground ,maiblue-three-cyan))))
    `(font-lock-comment-delimiter-face ((default (:inherit (font-lock-comment-face)))))
    `(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
    `(font-lock-function-name-face ((t (:foreground ,maiblue-three-blue))))
@@ -95,7 +95,7 @@
    `(font-lock-string-face ((t (:foreground ,maiblue-three-green))))
    `(font-lock-type-face ((t (:foreground ,maiblue-three-orange-2))))
    `(font-lock-constant-face ((t (:foreground ,maiblue-three-orange-1))))
-   `(font-lock-variable-name-face ((t (:foreground ,maiblue-three-red-1))))
+   `(font-lock-variable-name-face ((t (:foreground ,maiblue-three-mono-1))))
    `(font-lock-warning-face ((t (:foreground ,maiblue-three-mono-3 :bold t))))
 
    ;; mode-line
