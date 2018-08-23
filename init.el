@@ -25,7 +25,7 @@
     "frame-style.el"
     "key-bindings.el")
   "Maimacs' source files")
-  
+
 (if (version< emacs-version maimacs/emacs-min-version)
     (error (concat "Your Emacs version (%s) is too old. "
 		   "Maimacs require Emacs version %s or above.")
