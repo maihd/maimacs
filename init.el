@@ -14,13 +14,16 @@
     "common/nlinum.el"
     "common/autosave.el"
     "common/frame-style.el"
-    "common/key-bindings.el"
+    "common/key-bindings.el")
+  "Maimacs' source files")
 
-    "mode/c-mode.el"
-    "mode/web-mode.el"
-    "mode/lua-mode.el"
-    "mode/glsl-mode.el"
-    "mode/nasm-mode.el")
+(defconst maimacs/mode-files
+  '((c-mode . "mode/c-mode.el")
+    (web-mode . "mode/web-mode.el")
+    (lua-mode . "mode/lua-mode.el")
+    (glsl-mode . "mode/glsl-mode.el")
+    (nasm-mode . "mode/nasm-mode.el")
+    (markdown-mode . "mode/markdown-mode.el"))
   "Maimacs' source files")
 
 (if (version< emacs-version maimacs/emacs-min-version)
@@ -49,6 +52,17 @@
 				                maimacs-directory))
 	    (load-modules (cdr modules-list))))
     (load-modules maimacs/source-files)
+
+    ;; Autoload for mode
+    (defun autoload-modes (modes-list)
+      "Autoload modes in maimacs-directory"
+      (when modes-list
+        (letrec ((pair (car modes-list))
+                 (mode (car pair))
+                 (file (cdr pair)))
+          (autoload mode (expand-file-name file maimacs-directory)))
+        (autoload-modes (cdr modes-list))))
+    (autoload-modes  maimacs/mode-files)
     
     ;; Initialize files' auto mode detection
     (add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
@@ -61,6 +75,7 @@
     (add-to-list 'auto-mode-alist '("\\.lua\\'"  .  lua-mode))
     (add-to-list 'auto-mode-alist '("\\.asm\\'"  . nasm-mode))
     (add-to-list 'auto-mode-alist '("\\.s\\'"    . nasm-mode))
+    (add-to-list 'auto-mode-alist '("\\.md\\'"   . markdown-mode))
 
     ;; Initialize interpreters
     (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
