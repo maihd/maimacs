@@ -2,6 +2,9 @@
 ;;; MaiMacs 2017 - 2018, by MaiHD
 ;;;
 
+(require 'cl)
+(require 'nlinum)
+
 ;; frame settings
 (menu-bar-mode     -1)
 (tool-bar-mode     -1)

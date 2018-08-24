@@ -44,7 +44,7 @@
                    ("maiblue-three-cyan"     . "#56B6C2")
                    ("maiblue-three-blue"     . "#61AFEF")
                    ("maiblue-three-purple"   . "#C678DD")
-                   ("maiblue-three-green"    . "#98C379")
+                   ("maiblue-three-green"    . "#89D379")
                    ("maiblue-three-red-1"    . "#E06C75")
                    ("maiblue-three-red-2"    . "#BE5046")
                    ("maiblue-three-orange-1" . "#D19A66")
@@ -86,7 +86,7 @@
    `(minibuffer-prompt ((t (:foreground ,maiblue-three-blue))))
 
    `(font-lock-builtin-face ((t (:foreground ,maiblue-three-blue))))
-   `(font-lock-comment-face ((t (:foreground ,maiblue-three-cyan))))
+   `(font-lock-comment-face ((t (:foreground ,maiblue-three-mono-3))))
    `(font-lock-comment-delimiter-face ((default (:inherit (font-lock-comment-face)))))
    `(font-lock-doc-face ((t (:inherit (font-lock-string-face)))))
    `(font-lock-function-name-face ((t (:foreground ,maiblue-three-blue))))

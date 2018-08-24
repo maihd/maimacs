@@ -2,38 +2,35 @@
 ;;; MaiMacs 2017 - 2018, by MaiHD
 ;;;
 
-(defconst maimacs/version "0.1.0"
+(defconst maimacs/version "0.1.1"
   "MaiMacs version.")
 
 (defconst maimacs/emacs-min-version "24.0.0"
   "Emacs min version that is supported by MaiMacs.")
 
 (defconst maimacs/source-files
-  '("c-mode.el"
-    "web-mode.el"
-    "lua-mode.el"
-    "glsl-mode.el"
-    "nasm-mode.el"
-    "unity-shader-mode.el"
+  '("themes/maiblue-three-theme.el"
     
-    ;"maibluetwo-theme.el"
-    "themes/maiblue-three-theme.el"
-    
-    "nlinum.el"
-    "maiterm.el"
-    "autosave.el"
-    "frame-style.el"
-    "key-bindings.el")
+    "common/nlinum.el"
+    "common/autosave.el"
+    "common/frame-style.el"
+    "common/key-bindings.el"
+
+    "mode/c-mode.el"
+    "mode/web-mode.el"
+    "mode/lua-mode.el"
+    "mode/glsl-mode.el"
+    "mode/nasm-mode.el")
   "Maimacs' source files")
 
 (if (version< emacs-version maimacs/emacs-min-version)
     (error (concat "Your Emacs version (%s) is too old. "
-		   "Maimacs require Emacs version %s or above.")
-	   emacs-version
-	   maimacs/emacs-min-version)
+		           "Maimacs require Emacs version %s or above.")
+	       emacs-version
+	       maimacs/emacs-min-version)
   (defun maimacs-init (maimacs-directory)
     "Initialize maimacs"
-
+    
     ;; Encoding
     (set-language-environment "UTF-8")
     
@@ -48,9 +45,9 @@
     (defun load-modules (modules-list)
       "Loading modules in maimacs-directory"
       (when modules-list
-	(load (expand-file-name (car modules-list)
-				maimacs-directory))
-	(load-modules (cdr modules-list))))
+	    (load (expand-file-name (car modules-list)
+				                maimacs-directory))
+	    (load-modules (cdr modules-list))))
     (load-modules maimacs/source-files)
     
     ;; Initialize files' auto mode detection
@@ -70,7 +67,6 @@
 
     ;; Change main mode to c-mode
     (setq initial-major-mode 'c-mode)
-    (setq initial-scratch-message "")
-    ))
+    (setq initial-scratch-message "")))
 
 ;; @endfile: init.el
