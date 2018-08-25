@@ -6,7 +6,7 @@
 
 (setq c-default-style "linux")
 (setq c++-default-style "linux")
-(setq c-sharp-default-style "linux")
+(setq csharp-default-style "linux")
 
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
@@ -14,6 +14,9 @@
 (setq-default c-basic-offset 4)
 (setq-default c-brace-imaginary-offset 4)
 (setq-default c-continued-statement-offset 4)
+
+(c-set-offset 'inline-open '0)
+(c-set-offset 'substatement-open '0)
 
 (font-lock-add-keywords 'c++-mode
                         '(("uint" . 'font-lock-type-face)
