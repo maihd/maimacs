@@ -18,29 +18,18 @@
 (c-set-offset 'inline-open '0)
 (c-set-offset 'substatement-open '0)
 
-(font-lock-add-keywords 'c++-mode
-                        '(("uint2x2" . 'font-lock-type-face)
-                          ("uint3x3" . 'font-lock-type-face)
-                          ("uint4x4" . 'font-lock-type-face)
-                          ("int2x2" . 'font-lock-type-face)
-                          ("int3x3" . 'font-lock-type-face)
-                          ("int4x4" . 'font-lock-type-face)
-                          ("bool2x2" . 'font-lock-type-face)
-                          ("bool3x3" . 'font-lock-type-face)
-                          ("bool4x4" . 'font-lock-type-face)
-                          ("float2x2" . 'font-lock-type-face)
-                          ("float3x3" . 'font-lock-type-face)
-                          ("float4x4" . 'font-lock-type-face)
-                          ("uint2" . 'font-lock-type-face)
-                          ("uint3" . 'font-lock-type-face)
-                          ("uint4" . 'font-lock-type-face)
-                          ("uint" . 'font-lock-type-face)
-                          ("int2" . 'font-lock-type-face)
-                          ("int3" . 'font-lock-type-face)
-                          ("int4" . 'font-lock-type-face)
-                          ("bool2" . 'font-lock-type-face)
-                          ("bool3" . 'font-lock-type-face)
-                          ("bool4" . 'font-lock-type-face)
-                          ("float2" . 'font-lock-type-face)
-                          ("float3" . 'font-lock-type-face)
-                          ("float4" . 'font-lock-type-face)))
+;;
+;; Add HLSL types keywords highlight
+;;
+(let* ((types
+        '("int2" "int3" "int4"
+          "uint2" "uint3" "uint4" "uint"
+          "bool2" "bool3" "bool4"
+          "float2" "float3" "float4"
+          "int2x2" "int3x3" "int4x4"
+          "uint2x2" "uint3x3" "uint4x4"
+          "bool2x2" "bool3x3" "bool4x4"
+          "float2x2" "float3x3" "float4x4"))
+       (types-regexp
+        (concat "\\<\\(" (regexp-opt types) "\\)\\>")))
+  (font-lock-add-keywords 'c++-mode `((,types-regexp . 'font-lock-type-face))))
