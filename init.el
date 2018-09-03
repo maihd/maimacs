@@ -34,8 +34,11 @@
   (defun maimacs-init (maimacs-directory)
     "Initialize maimacs"
     
-    ;; Encoding
+    ;; Encoding and line ending
     (set-language-environment "UTF-8")
+    (set-buffer-file-coding-system 'unix t)
+    (setq-default coding-system 'utf-8)
+    (setq-default buffer-file-coding-sytem 'unix)
     
     ;; Hide welcome screen
     (setq inhibit-splash-screen t)
