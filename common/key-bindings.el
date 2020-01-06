@@ -1,4 +1,6 @@
-;; copyright 2018 by MaiHD
+;;
+;; Copyright 2017 - 2020 by MaiHD
+;;
 
 (defun move-line-up ()
   "Move up the current line."

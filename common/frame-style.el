@@ -1,5 +1,5 @@
 ;;;
-;;; MaiMacs 2017 - 2018, by MaiHD
+;;; MaiMacs 2017 - 2020, by MaiHD
 ;;;
 
 (require 'cl)

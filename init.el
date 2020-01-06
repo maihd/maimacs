@@ -1,5 +1,5 @@
 ;;;
-;;; MaiMacs 2017 - 2018, by MaiHD
+;;; MaiMacs 2017 - 2020, by MaiHD
 ;;;
 
 (defconst maimacs/version "0.1.1"
@@ -66,7 +66,7 @@
                  (file (cdr pair)))
           (autoload mode (expand-file-name file maimacs-directory)))
         (autoload-modes (cdr modes-list))))
-    (autoload-modes  maimacs/mode-files)
+    (autoload-modes maimacs/mode-files)
     
     ;; Initialize files' auto mode detection
     (add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))
@@ -89,4 +89,4 @@
     (setq initial-major-mode 'c-mode)
     (setq initial-scratch-message "")))
 
-;; @endfile: init.el
+;; @endfile: maimacs/init.el

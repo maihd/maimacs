@@ -1,5 +1,5 @@
 ;;;
-;;; MaiEmacs 2017 - 2018, by MaiHD
+;;; MaiEmacs 2017 - 2020, by MaiHD
 ;;;
 
 (defconst emacs-temp-directory
