@@ -14,5 +14,9 @@ Emacs extensions, that useful for me, MaiHD.
 ![Open with Emacs](/images/open-with-emacs.png)
 
 
+## Todos
+- Replace and update scripts to work with newer Emacs version.
+
+
 ## NOTES
 Not work on other version of Emacs 24.
