@@ -10,13 +10,18 @@ Emacs extensions, that useful for me, MaiHD.
 
 
 ## Screenshots
-![MaiMacs](/images/maimacs.png)
-![Open with Emacs](/images/open-with-emacs.png)
+![MaiMacs](.github/images/maimacs.png)
+![Open with Emacs](.github/images/open-with-emacs.png)
 
 
-## Todos
-- Replace and update scripts to work with newer Emacs version.
+## Installation
+Create ~/.emacs.el or ~/.emacs.d/init.el (in Windows ~/ is %UserProfile%).
+
+```ELisp
+(load-file "g:/projects/maimacs/init.el")
+(maimacs-init "g:/projects/maimacs")
+```
 
 
-## NOTES
-Not work on other version of Emacs 24.
+## Licenses
+Each files or modules have each own license, see details in the header.

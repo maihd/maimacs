@@ -92,7 +92,7 @@
 (require 'newcomment)
 (require 'rx)
 
-
+
 ;; rx-wrappers for Lua
 
 (eval-when-compile

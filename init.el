@@ -13,27 +13,31 @@
 (defconst maimacs/emacs-max-version "24.99.99"
   "Emacs min version that is supported by MaiMacs.")
 
-(cond
- ((version< emacs-version maimacs/emacs-min-version)
-  (error (concat "Your Emacs version (%s) is too old. "
-                 "Maimacs require Emacs version %s or above.")
-         emacs-version
-         maimacs/emacs-min-version))
- ((not (version< emacs-version maimacs/emacs-max-version))
-  (error (concat "Your Emacs version (%s) is too new. "
-                 "Maimacs require Emacs version %s and between.")
-         emacs-version
-         mamacs/emacs-max-version)))
+;; (cond
+;;  ((version< emacs-version maimacs/emacs-min-version)
+;;   (error (concat "Your Emacs version (%s) is too old. "
+;;                  "Maimacs require Emacs version %s or above.")
+;;          emacs-version
+;;          maimacs/emacs-min-version))
+;;  ((not (version< emacs-version maimacs/emacs-max-version))
+;;   (error (concat "Your Emacs version (%s) is too new. "
+;;                  "Maimacs require Emacs version %s and between.")
+;;          emacs-version
+;;          maimacs/emacs-max-version)))
 
 ;; Initialization
 
 (defconst maimacs/source-files
-  '("themes/maiblue-three-theme.el"
+  '("themes/atom-one-dark-theme.el"
     
     "common/nlinum.el"
     "common/autosave.el"
-    "common/frame-style.el"
-    "common/key-bindings.el")
+    "common/key-bindings.el"
+
+    "common/all-the-icons-faces.el"
+    "common/all-the-icons.el"
+    "common/lambda-line.el"
+    "common/frame-style.el")
   "Maimacs' source files")
 
 (defconst maimacs/mode-files
@@ -103,6 +107,12 @@
 
   ;; Change main mode to c-mode
   (setq initial-major-mode 'c-mode)
-  (setq initial-scratch-message ""))
+  (setq initial-scratch-message "")
+  
+  ;; Load theme
+  (load-theme 'atom-one-dark t)
+  
+  ;; Change mode-line
+  (maimacs/mode-line))
 
 ;; @endfile: maimacs/init.el
