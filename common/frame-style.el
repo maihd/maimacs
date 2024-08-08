@@ -70,7 +70,7 @@
   (customize-set-variable 'lambda-line-gui-mod-symbol " ") 
   (customize-set-variable 'lambda-line-gui-rw-symbol  " ")
   (customize-set-variable 'lambda-line-gui-vc-symbol  " ")
-  (customize-set-variable 'lambda-line-gui-vc-symbol  " ")
+  (customize-set-variable 'lambda-line-vc-symbol      "  ")
   (customize-set-variable 'lambda-line-space-top +.20)  ;; padding on top and bottom of line
   (customize-set-variable 'lambda-line-space-bottom -.20)
   (customize-set-variable 'lambda-line-symbol-position 0.1) ;; adjust the vertical placement of symbol
