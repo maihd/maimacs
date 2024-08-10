@@ -18,8 +18,8 @@
 (set-frame-height (selected-frame) 42)
 (setq frame-title-format
       '((:eval (let ((name (buffer-file-name)))
-		 (or name "%b")))
-	" - MaiMacs"))
+         (or name "%b")))
+    " - MaiMacs"))
 
 ;; Preset `nlinum-format' for minimum width.
 (setq nlinum-format "%3d  ")
@@ -37,7 +37,7 @@
 (cond
  ((find-font (font-spec :name "ZeitungMonoPro Nerd Font"))
   (set-frame-font "ZeitungMonoPro Nerd Font"))
- ((font-font (font-spec :name "Zeitung Mono Pro"))
+ ((find-font (font-spec :name "Zeitung Mono Pro"))
   (set-frame-font "Zeitung Mono Pro"))
  ((find-font (font-spec :name "Fira Code"))
   (set-frame-font "Fira Code"))
@@ -60,14 +60,14 @@
 (defun maimacs/mode-line ()
   (customize-set-variable 'lambda-line-icon-time nil) ;; requires ClockFace font (see below)
   (customize-set-variable 'lambda-line-clockface-update-fontset "ClockFaceRect") ;; set clock icon
-  (customize-set-variable 'lambda-line-position 'bottom) ;; Set position of status-line 
+  (customize-set-variable 'lambda-line-position 'bottom) ;; Set position of status-line
   (customize-set-variable 'lambda-line-abbrev t) ;; abbreviate major modes
   (customize-set-variable 'lambda-line-hspace "    ")  ;; add some cushion
   (customize-set-variable 'lambda-line-prefix t) ;; use a prefix symbol
-  (customize-set-variable 'lambda-line-prefix-padding nil) ;; no extra space for prefix 
+  (customize-set-variable 'lambda-line-prefix-padding nil) ;; no extra space for prefix
   (customize-set-variable 'lambda-line-status-invert nil)  ;; no invert colors
   (customize-set-variable 'lambda-line-gui-ro-symbol  " ") ;; symbols
-  (customize-set-variable 'lambda-line-gui-mod-symbol " ") 
+  (customize-set-variable 'lambda-line-gui-mod-symbol " ")
   (customize-set-variable 'lambda-line-gui-rw-symbol  " ")
   (customize-set-variable 'lambda-line-gui-vc-symbol  " ")
   (customize-set-variable 'lambda-line-vc-symbol      "  ")
@@ -75,8 +75,8 @@
   (customize-set-variable 'lambda-line-space-bottom -.20)
   (customize-set-variable 'lambda-line-symbol-position 0.1) ;; adjust the vertical placement of symbol
 
-  ;; activate lambda-line 
-  (lambda-line-mode) 
+  ;; activate lambda-line
+  (lambda-line-mode)
 
   ;; set divider line in footer
   (when (eq lambda-line-position 'top)
@@ -94,7 +94,7 @@
 
 ;; (set-face-attribute 'mode-line nil
 ;;                     :background "#0063B1"
-;; 		            :foreground "#E0F1FF"
+;;                     :foreground "#E0F1FF"
 ;;                     :box nil)
 ;; (set-face-attribute 'mode-line-inactive nil
 ;;                     :background statusline-color1
@@ -311,9 +311,9 @@
 ;;                                   :background bg
 ;;                                   :box nil))
 ;;           (set-face-attribute cface nil
-;; 			      :foreground statusline-text-color
-;; 			      :background bg
-;; 			      :box nil))
+;;                   :foreground statusline-text-color
+;;                   :background bg
+;;                   :box nil))
 ;;         cface)
 ;;     nil))
 
@@ -327,9 +327,9 @@
 ;;      (if string
 ;;          (if localmap
 ;;              (propertize string
-;; 			 'face plface
-;; 			 'mouse-face plface
-;; 			 'local-map localmap)
+;;              'face plface
+;;              'mouse-face plface
+;;              'local-map localmap)
 ;;            (propertize string 'face plface))
 ;;        "")
 ;;      (if arrow
@@ -337,7 +337,7 @@
 ;;        "")
 ;;      (if arrow
 ;;          (propertize " " 'display
-;; 		     (arrow-left-xpm color1 color2)))
+;;              (arrow-left-xpm color1 color2)))
 ;;        "")))
 
 ;; (defun statusline-make-right (string color2 &optional color1 localmap)
@@ -346,16 +346,16 @@
 ;;     (concat
 ;;      (if arrow
 ;;          (propertize " " 'display
-;; 		     (arrow-right-xpm color1 color2)))
+;;              (arrow-right-xpm color1 color2)))
 ;;      (if arrow
 ;;          (propertize " " 'face plface)
 ;;        "")
 ;;      (if string
 ;;          (if localmap
 ;;              (propertize string
-;; 			 'face plface
-;; 			 'mouse-face plface
-;; 			 'local-map localmap)
+;;              'face plface
+;;              'mouse-face plface
+;;              'local-map localmap)
 ;;            (propertize string 'face plface))
 ;;        "")
 ;;      (if (or (not string) (string= string ""))
@@ -377,9 +377,9 @@
 ;;     (if string
 ;;         (if localmap
 ;;             (propertize string
-;; 			'face plface
-;; 			'mouse-face plface
-;; 			'local-map localmap)
+;;             'face plface
+;;             'mouse-face plface
+;;             'local-map localmap)
 ;;           (propertize string 'face plface))
 ;;       "")))
 
@@ -401,15 +401,15 @@
 ;;   `(defun ,(intern (concat "statusline-" (symbol-name name)))
 ;;      (side color1 &optional color2)
 ;;      (statusline-make side
-;; 		      (let ((result ,string))
-;; 			(cond ((listp result)
-;; 			       (format-mode-line result)) 
-;; 			      ((not (or (stringp result)
-;; 					(null result)))
-;; 			       (progn
-;; 				 " ERR"))
-;; 			      (t
-;; 			       result)))
+;;               (let ((result ,string))
+;;             (cond ((listp result)
+;;                    (format-mode-line result))
+;;                   ((not (or (stringp result)
+;;                     (null result)))
+;;                    (progn
+;;                  " ERR"))
+;;                   (t
+;;                    result)))
 ;;                      color1 color2)))
 
 
@@ -447,67 +447,67 @@
 ;;                                 "%I"
 ;;                               "%i")
 ;;                             'local-map
-;; 			    (make-mode-line-mouse-map
-;; 			     'mouse-1
-;; 			     (lambda ()
-;; 			       (interactive)
-;; 			       (setq statusline-buffer-size-suffix
-;; 				     (not statusline-buffer-size-suffix))
-;; 			       (redraw-modeline)))))
+;;                 (make-mode-line-mouse-map
+;;                  'mouse-1
+;;                  (lambda ()
+;;                    (interactive)
+;;                    (setq statusline-buffer-size-suffix
+;;                      (not statusline-buffer-size-suffix))
+;;                    (redraw-modeline)))))
 
 ;; (defstatusline rmw         "%*")
 ;; (defstatusline major-mode
 ;;   (propertize mode-name
-;; 	      'help-echo "Major mode\n\ mouse-1: Display major mode menu\n\ mouse-2: Show help for major mode\n\ mouse-3: Toggle minor modes"
-;; 	      'local-map (let ((map (make-sparse-keymap)))
-;; 			   (define-key map
-;; 			     [mode-line down-mouse-1]
-;; 			     `(menu-item
-;; 			       ,(purecopy "Menu Bar") ignore
-;; 			       :filter (lambda (_)
-;; 					 (mouse-menu-major-mode-map))))
-;; 			   (define-key map [mode-line mouse-2]
-;; 			     'describe-mode)
-;; 			   (define-key map [mode-line down-mouse-3]
-;; 			     mode-line-mode-menu)
-;; 			   map)))
+;;           'help-echo "Major mode\n\ mouse-1: Display major mode menu\n\ mouse-2: Show help for major mode\n\ mouse-3: Toggle minor modes"
+;;           'local-map (let ((map (make-sparse-keymap)))
+;;                (define-key map
+;;                  [mode-line down-mouse-1]
+;;                  `(menu-item
+;;                    ,(purecopy "Menu Bar") ignore
+;;                    :filter (lambda (_)
+;;                      (mouse-menu-major-mode-map))))
+;;                (define-key map [mode-line mouse-2]
+;;                  'describe-mode)
+;;                (define-key map [mode-line down-mouse-3]
+;;                  mode-line-mode-menu)
+;;                map)))
 
 ;; (defstatusline process mode-line-process)
 
 ;; (defstatusline minor-modes
 ;;   (let ((mms (split-string (format-mode-line minor-mode-alist))))
 ;;     (apply 'concat
-;; 	   (mapcar
-;; 	    #'(lambda (mm)
-;; 		(propertize (if (string= (car mms) mm)
-;; 				mm
-;; 				     (concat " " mm))
-;; 			    'help-echo "Minor mode\n mouse-1: Display minor mode menu\n mouse-2: Show help for minor mode\n mouse-3: Toggle minor modes"
-;; 			    'local-map (let ((map (make-sparse-keymap)))
-;; 					 (define-key map
-;; 					   [mode-line down-mouse-1]
-;; 					   (statusline-mouse 'minor
-;; 							     'menu
-;; 							     mm))
-					 
-;; 					 (define-key map
-;; 					   [mode-line mouse-2]
-;; 					   (statusline-mouse 'minor
-;; 							     'help
-;; 							     mm))
-					 
-;; 					 (define-key map
-;; 					   [mode-line down-mouse-3]
-;; 					   (statusline-mouse 'minor
-;; 							     'menu
-;; 							     mm))
-;; 					 (define-key map
-;; 					   [header-line down-mouse-3]
-;; 					   (statusline-mouse 'minor
-;; 							     'menu
-;; 							     mm))
-;; 					 map)))
-;; 	    mms))))
+;;        (mapcar
+;;         #'(lambda (mm)
+;;         (propertize (if (string= (car mms) mm)
+;;                 mm
+;;                      (concat " " mm))
+;;                 'help-echo "Minor mode\n mouse-1: Display minor mode menu\n mouse-2: Show help for minor mode\n mouse-3: Toggle minor modes"
+;;                 'local-map (let ((map (make-sparse-keymap)))
+;;                      (define-key map
+;;                        [mode-line down-mouse-1]
+;;                        (statusline-mouse 'minor
+;;                                  'menu
+;;                                  mm))
+
+;;                      (define-key map
+;;                        [mode-line mouse-2]
+;;                        (statusline-mouse 'minor
+;;                                  'help
+;;                                  mm))
+
+;;                      (define-key map
+;;                        [mode-line down-mouse-3]
+;;                        (statusline-mouse 'minor
+;;                                  'menu
+;;                                  mm))
+;;                      (define-key map
+;;                        [header-line down-mouse-3]
+;;                        (statusline-mouse 'minor
+;;                                  'menu
+;;                                  mm))
+;;                      map)))
+;;         mms))))
 
 ;; (defstatusline row         "%4l")
 ;; (defstatusline column      "%3c")
@@ -516,14 +516,14 @@
 ;;   (let (real-point-min real-point-max)
 ;;     (save-excursion
 ;;       (save-restriction
-;; 	(widen)
-;; 	(setq real-point-min (point-min) real-point-max (point-max))))
+;;     (widen)
+;;     (setq real-point-min (point-min) real-point-max (point-max))))
 ;;     (when (or (/= real-point-min (point-min))
-;; 	      (/= real-point-max (point-max)))
+;;           (/= real-point-max (point-max)))
 ;;       (propertize "Narrow"
-;; 		  'help-echo "mouse-1: Remove narrowing from the current buffer"
-;; 		  'local-map (make-mode-line-mouse-map
-;; 			      'mouse-1 'mode-line-widen)))))
+;;           'help-echo "mouse-1: Remove narrowing from the current buffer"
+;;           'local-map (make-mode-line-mouse-map
+;;                   'mouse-1 'mode-line-widen)))))
 
 ;; (defstatusline status      "%s")
 ;; (defstatusline global      global-mode-string)
@@ -531,21 +531,21 @@
 
 ;; (defstatusline vc
 ;;   (when (and (buffer-file-name (current-buffer))
-;; 	     vc-mode)
+;;          vc-mode)
 ;;     (symbol-name (vc-mode-line (buffer-file-name (current-buffer))))))
 
 ;; (defstatusline percent-xpm
 ;;   (propertize "  "
-;; 	      'display
-;; 	      (let (pmax
-;; 		    pmin
-;; 		    (ws (window-start))
+;;           'display
+;;           (let (pmax
+;;             pmin
+;;             (ws (window-start))
 ;;                                             (we (window-end)))
-;; 		(save-restriction
-;; 		  (widen)
-;; 		  (setq pmax (point-max))
-;; 		  (setq pmin (point-min)))
-;; 		(percent-xpm pmax pmin we ws 15 color1 color2))))
+;;         (save-restriction
+;;           (widen)
+;;           (setq pmax (point-max))
+;;           (setq pmin (point-min)))
+;;         (percent-xpm pmax pmin we ws 15 color1 color2))))
 
 ;; (setq-default mode-line-format
 ;;               (list "%e"
@@ -553,41 +553,41 @@
 ;;                              (statusline-rmw            'left   nil)
 ;;                              (statusline-buffer-size    'left   nil)
 ;;                              (statusline-buffer-id      'left   nil
-;; 							statusline-color1)
-			     
+;;                             statusline-color1)
+
 ;;                              (statusline-major-mode     'left
-;; 							statusline-color1)
-			     
+;;                             statusline-color1)
+
 ;;                              (statusline-process        'text
-;; 							statusline-color1)
-			     
+;;                             statusline-color1)
+
 ;;                              (statusline-minor-modes    'left
-;; 							statusline-color1)
-			     
+;;                             statusline-color1)
+
 ;;                              (statusline-narrow         'left
-;; 							statusline-color1
-;; 							statusline-color2)
-			     
+;;                             statusline-color1
+;;                             statusline-color2)
+
 ;;                              (statusline-global         'center
-;; 							statusline-color2)
-			     
+;;                             statusline-color2)
+
 ;;                              (statusline-vc             'center
-;; 							statusline-color2)
-			     
+;;                             statusline-color2)
+
 ;;                              (statusline-make-fill      statusline-color2)
-			     
+
 ;;                              (statusline-row            'right
-;; 							statusline-color1
-;; 							statusline-color2)
-			     
+;;                             statusline-color1
+;;                             statusline-color2)
+
 ;;                              (statusline-make-text      ":"
-;; 							statusline-color1)
+;;                             statusline-color1)
 ;;                              (statusline-column         'right
-;; 							statusline-color1)
+;;                             statusline-color1)
 ;;                              (statusline-percent        'right  nil
-;; 							statusline-color1)
+;;                             statusline-color1)
 ;;                              (statusline-percent-xpm    'text   nil
-;; 							statusline-color1)
+;;                             statusline-color1)
 ;;                              (statusline-make-text      "  "    nil)))))
 
 

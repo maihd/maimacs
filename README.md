@@ -16,6 +16,7 @@ Emacs extensions, that useful for me, MaiHD.
 
 ## Installation
 Create ~/.emacs.el or ~/.emacs.d/init.el (in Windows ~/ is %UserProfile%).
+Run install.bat for Windows. But only used when have no .emacs.d or .emacs.el
 
 ```ELisp
 (load-file "g:/projects/maimacs/init.el")
