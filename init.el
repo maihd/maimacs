@@ -40,6 +40,18 @@
     "common/frame-style.el")
   "Maimacs' source files")
 
+(defconst maimacs/packages-directory
+  "packages"
+  "Maimacs' packages directory")
+
+(defconst maimacs/packages
+  '("dash-2.19.1"
+    "expand-region-1.0.0"
+    "multicursors-1.4.0"
+
+    "boon-1.3")
+  "Maimacs' packages")
+
 (defconst maimacs/mode-files
   '((c-mode . "mode/c-mode.el")
     (web-mode . "mode/web-mode.el")
@@ -63,6 +75,14 @@
   ;; Hide welcome screen
   (setq inhibit-splash-screen t)
   (setq inhibit-startup-message t)
+
+  ;; Loading packages
+  (defun load-packages (packages-list)
+    "Loading packages in maimacs-directory"
+    (when packages-list
+      (add-to-list 'load-path (expand-file-name (car packages-list) (expand-file-name maimacs/packages-directory maimacs-directory)))
+      (load-packages (cdr packages-list))))
+  (load-packages maimacs/packages)
   
   ;; Load path 
   (add-to-list 'load-path maimacs-directory)
@@ -86,6 +106,12 @@
         (autoload mode (expand-file-name file maimacs-directory)))
       (autoload-modes (cdr modes-list))))
   (autoload-modes maimacs/mode-files)
+
+  ;; Modal editting
+  (cua-mode t)
+    (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+    (transient-mark-mode 1) ;; No region when it is not highlighted
+    (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
   
   ;; Initialize files' auto mode detection
   (add-to-list 'auto-mode-alist '("\\.glsl\\'" . glsl-mode))

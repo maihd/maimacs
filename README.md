@@ -1,6 +1,9 @@
 # Introduction
 Emacs extensions, that useful for me, MaiHD.
 
+## Notes
+I only use emacs for structural editing Lisp code, so this extensions is simple, and have cua-mode activate by default.
+Working or finding for other editor have Lisp-like structural editing.
 
 ## Features
 1. Beautiful theme
@@ -22,7 +25,6 @@ Run install.bat for Windows. But only used when have no .emacs.d or .emacs.el
 (load-file "g:/projects/maimacs/init.el")
 (maimacs-init "g:/projects/maimacs")
 ```
-
 
 ## Licenses
 Each files or modules have each own license, see details in the header.

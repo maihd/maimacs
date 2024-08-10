@@ -9,9 +9,9 @@ for /f "delims=" %%A in ('
 
 echo %MAIMACS_DIR%
 
-:: if exist %EMACS_HOME%\.emacs.d (
-::     echo ~/.emacs.d exists, please add install script by hand
-:: )
+if exist %EMACS_HOME%\.emacs.d (
+    echo ~/.emacs.d exists, please add install script by hand
+)
 
 if not exist %EMACS_HOME%\.emacs.d (
     mkdir %EMACS_HOME%.emacs.d
