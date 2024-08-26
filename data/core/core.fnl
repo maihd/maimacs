@@ -3,7 +3,8 @@
 (local config { :fps 60 })
 
 (fn core.init []
-
+    (require :base.class)
+    (require :core.view)
 )
 
 (fn core.run []
