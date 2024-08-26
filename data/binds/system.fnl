@@ -4,4 +4,11 @@
 ;; Links: https://www.cliki.net/Naming+conventions
 ;;
 
-; (set _G.system/show-window system.show_window)
+(set system.set-window-title system.set_window_title)
+(set system.get-time system.get_time)
+(set system.poll-event system.poll_event)
+
+;; @note(maihd): should be replace with native function
+(fn system.gc [duration]
+    (collectgarbage "collect")
+)

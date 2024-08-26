@@ -1,4 +1,4 @@
-(import-macros {: class} :base.class)
+(import-macros {: class} :macros)
 
 (class View []
     (fn new [self]

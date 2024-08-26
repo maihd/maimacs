@@ -19,4 +19,14 @@ fennel["macro-path"] = EXEDIR .. '/data/?/init.fnl;' .. fennel["macro-path"]
 --     end
 -- end)
 
-return fennel.install().dofile("data/core/core.fnl")
+local fennel_state = fennel.install({
+    allowedGlobals = true
+})
+
+-- Load Fennel bindings for native functions
+fennel_state.dofile("data/binds/system.fnl")
+fennel_state.dofile("data/binds/renderer.fnl")
+
+-- Setup done, start the editor
+-- with the logic from core.fnl
+return fennel_state.dofile("data/core/core.fnl")
