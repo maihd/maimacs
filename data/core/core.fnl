@@ -3,8 +3,15 @@
 (local config { :fps 60 })
 
 (fn core.init []
-    (require :base.class)
-    (require :core.view)
+    (local View (require :core.view))
+    (local RootView (require :core.root-view))
+
+    (local view (View))
+    (local root-view (RootView))
+
+    (root-view:update)
+
+    (system.set_window_title (root-view:get-name))
 )
 
 (fn core.run []
@@ -52,7 +59,7 @@
 
 
 (fn core.step []
-    (each [(type a b c d e) system.poll_event]
+    (each [type a b c d e system.poll_event]
         (when (= type "quit")
             (os.exit)
         )
