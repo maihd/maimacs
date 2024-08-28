@@ -5,8 +5,8 @@ table.insert(package.loaders or package.searchers, fennel.searcher)
 fennel.path = EXEDIR .. '/data/?.fnl;' .. fennel.path
 fennel.path = EXEDIR .. '/data/?/init.fnl;' .. fennel.path
 
-fennel["macro-path"] = EXEDIR .. '/data/?.fnl;' .. fennel["macro-path"]
-fennel["macro-path"] = EXEDIR .. '/data/?/init.fnl;' .. fennel["macro-path"]
+fennel["macro-path"] = EXEDIR .. '/data/macros.fnl;' .. fennel["macro-path"]
+fennel["macro-path"] = EXEDIR .. '/data/macros/init.fnl;' .. fennel["macro-path"]
 
 -- table.insert(fennel["macro-searchers"], function (module_name)
 --     local filename = fennel["search-module"](module_name, package.cpath)
