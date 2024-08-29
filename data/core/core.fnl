@@ -1,4 +1,5 @@
 (local core {})
+(local style (require :core.style))
 
 (local config { :fps 60 })
 
@@ -13,6 +14,7 @@
 
     (system.set-window-title (root-view:get-name))
 )
+
 
 (fn core.run []
     "Main Loop"
@@ -62,14 +64,25 @@
 (local renderer-end-frame renderer.end-frame)
 
 (fn core.step []
+    "Step of the Main Loop"
+
     (each [type a b c d e system.poll-event]
         (when (= type "quit")
             (os.exit)
         )
     )
 
-    (renderer-begin-frame)
-    (renderer-end-frame)
+    (let [(width height) (renderer.get-size)]
+
+        (renderer-begin-frame)
+
+        ;; Draw border
+        (renderer.draw-rect 0 0 1 height style.titlebar-background)
+        (renderer.draw-rect (- width 1) 0 1 height style.titlebar-background)
+        (renderer.draw-rect 0 (- height 1) width 1 style.titlebar-background)
+
+        (renderer-end-frame)
+    )
 
     true
 )

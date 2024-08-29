@@ -26,6 +26,7 @@ local fennel_state = fennel.install({
 -- Load Fennel bindings for native functions
 fennel_state.dofile("data/binds/system.fnl")
 fennel_state.dofile("data/binds/renderer.fnl")
+fennel_state.dofile("data/binds/renderer-font.fnl")
 
 -- Setup done, start the editor
 -- with the logic from core.fnl

@@ -1,5 +1,5 @@
 ;;
-;; LiteFx system modules bindings to fennel
+;; LiteFx system module bindings to fennel
 ;; The main purpose is to have good name conventions (kebab-case instead of snake_case)
 ;; Links: https://www.cliki.net/Naming+conventions
 ;;
